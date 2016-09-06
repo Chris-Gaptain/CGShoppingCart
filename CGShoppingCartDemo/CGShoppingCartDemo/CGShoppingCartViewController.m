@@ -9,7 +9,6 @@
 #import "CGShoppingCartViewController.h"
 #import "CGCommonTool.h"
 #import "CGShoppingCartCell.h"
-//#import "GDataXML.h"
 
 @interface CGShoppingCartViewController ()<UITableViewDataSource,UITableViewDelegate,NSXMLParserDelegate,ShoppingCarCellDelegate>
 
@@ -74,17 +73,15 @@
     [self CalculationPrice];
 }
 
--(void)CalculationPrice
-{
-    //遍历整个数据源，然后判断如果是选中的商品，就计算价格(单价 * 商品数量)
-    for ( int i =0; i<self.dataArray.count;i++)
-    {
+-(void)CalculationPrice {
+    
+    for ( int i =0; i<self.dataArray.count;i++) {
         CGShoppingModel *model = self.dataArray[i];
         if (model.selectState) {
             self.price = self.price + model.goodsNum *[model.goodsPrice intValue];
         }
     }
-    //给总价赋值
+
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"总金额:￥%.2f元",self.price]];
     [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17.0] range:NSMakeRange(4,str.length-4)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(4,str.length-4)];
@@ -99,7 +96,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGShoppingCartCell *cell = [tableView dequeueReusableCellWithIdentifier:@"123"];
+    CGShoppingCartCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIndentifier"];
     
     cell.delegate = self;
     cell.shoppingModel = self.dataArray[indexPath.row];
@@ -144,7 +141,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-40) style:UITableViewStylePlain];
-        [_tableView registerClass:[CGShoppingCartCell class] forCellReuseIdentifier:@"123"];
+        [_tableView registerClass:[CGShoppingCartCell class] forCellReuseIdentifier:@"cellIndentifier"];
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

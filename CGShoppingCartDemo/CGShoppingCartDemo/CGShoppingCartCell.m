@@ -50,16 +50,6 @@
     self.priceLab.font = [UIFont systemFontOfSize:16.0];
     [self addSubview:self.priceLab];
     
-    
-//    self.oldPriceLab = [[LineLabel alloc]initWithFrame:CGRectMake(kScreenWidth-70,self.priceLab.bottom+5, 58, 14)];
-//    self.oldPriceLab.textColor = [UIColor grayColor];
-//    self.oldPriceLab.text = @"￥200.00";
-//    self.oldPriceLab.backgroundColor = [UIColor clearColor];
-//    self.oldPriceLab.textAlignment = NSTextAlignmentRight;
-//    self.oldPriceLab.font = SYSTEMFONT(13);
-//    [self addSubview:self.oldPriceLab];
-    
-    
     self.shopNameLab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.shopImageView.frame)+10,CGRectGetMinY(self.shopImageView.frame)-5,kScreenWidth-CGRectGetMaxX(self.shopImageView.frame)-20-CGRectGetWidth(self.priceLab.frame), 20)];
     self.shopNameLab.text = @"商品名字";
     self.shopNameLab.numberOfLines = 0;
