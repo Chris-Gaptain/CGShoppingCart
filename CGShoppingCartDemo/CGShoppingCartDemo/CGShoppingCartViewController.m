@@ -28,9 +28,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view. 增加注释
+    
     self.navigationItem.title = @"ShoppingCart";
-        
+    
     self.dataArray = [[NSMutableArray alloc]initWithCapacity:1];
     
     [self.view addSubview:self.tableView];
