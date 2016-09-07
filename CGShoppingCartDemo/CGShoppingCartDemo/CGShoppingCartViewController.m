@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"ShoppingCart";
-    
+        
     self.dataArray = [[NSMutableArray alloc]initWithCapacity:1];
     
     [self.view addSubview:self.tableView];
